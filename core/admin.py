@@ -2,4 +2,7 @@ from django.contrib import admin
 from core.models import Evento
 
 # Register your models here.
-admin.site.register(Evento)
+class EventoAdmin(admin.ModelAdmin):
+    list_display = ('usuario','titulo','data_evento','data_criacao')
+    list_filter = ('usuario','data_evento','titulo')
+admin.site.register(Evento, EventoAdmin)
